@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__threads__post",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash hooks/pre-post.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "mcp__scraper__run",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash hooks/post-scrape.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
