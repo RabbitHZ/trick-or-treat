@@ -1,23 +1,25 @@
 {
   "hooks": {
-    "PreToolUse": [
+    "PostToolUse": [
       {
-        "matcher": "mcp__threads__post",
+        "matcher": "Edit|Write|Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "bash hooks/pre-post.sh"
+            "command": "code-review-graph update --skip-flows",
+            "timeout": 30
           }
         ]
       }
     ],
-    "PostToolUse": [
+    "SessionStart": [
       {
-        "matcher": "mcp__scraper__run",
+        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "bash hooks/post-scrape.sh"
+            "command": "code-review-graph status",
+            "timeout": 10
           }
         ]
       }
